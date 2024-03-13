@@ -14,12 +14,15 @@ import tyndfilm from "../assets/images/tynd-film.jpg";
 import "../styles/tobii.min.css";
 ---
 <MainLayout title="Titel">
-	<article class="">
+	<article class="" x-data>
 		<section class="max-w-xl mx-auto mt-32 prose" id="titel">
-			<h2 class="text-9xl">Uperfekt er perfekt</h2>
+			<h2 class="font-['Roc_Grotesk'] text-9xl text-rose-500 text-center">UPERFEKT ER PERFEKT</h2>
 		</section>
 		<section class="max-w-4xl mx-auto mt-32" id="herovideo">
-			<video width="1280" height="960" autoplay muted loop>
+			<audio x-ref="spacey_lyd">
+				<source src="rum_lyd.mp3" type="audio/mp3">
+			</audio>
+			<video width="1280" height="960" autoplay muted loop class="cursor cursor-hand-cursor" @mouseenter="$refs.spacey_lyd.play()">
 				<source src="pierre-falcke-video.mp4" type="video/mp4">
 			</video> 
 		</section>
@@ -27,7 +30,10 @@ import "../styles/tobii.min.css";
 			<p class="text-xl">Pierre Falcke. Du ved formentligt ikke hvem han er. Men indtil for kort tid siden, så du hans værker et par gange om dagen, hver dag, året rundt. Pierre Falcke var en af verdens bedst sælgende stock-fotografer, og han solgte over 2 millioner fotos om året. Men Pierre kunne ikke drømme om at bruge sine egne fotos - faktisk kan han ikke fordrage sit eget arbejde.</p>
 			<div>
 				<a href="pierre.jpeg" class="lightbox">
-					<Image src={pierre} alt="" class="my-0"/>
+					<audio x-ref="snapshot_lyd">
+						<source src="snapshot.mp3" type="audio/mp3">
+					</audio>
+					<Image src={pierre} alt="" class="cursor cursor-hand-cursor my-0" @click="$refs.snapshot_lyd.play()"/>
 					<figcaption>Pierre Falcke, selvportræt</figcaption>
 				</a>
 			</div>
@@ -42,7 +48,7 @@ import "../styles/tobii.min.css";
 			</p>
 		</section>
 		<section class="max-w-4xl mx-auto my-32 prose border border-double border-black p-8" id="hvaderstockfotos">
-			<h2 class="text-2xl">Hvad er stock-fotos?</h2>
+			<h2 class="text-2xl text-orange-500">Hvad er stock-fotos?</h2>
 			<div class="grid grid-cols-3 gap-4">
 				<div>
 					<p>Stock-fotos er billeder, der kan købes fra et foto-website. De bruges af aviser, til markedsføring og som indhold på websites. En licens til at bruge et foto koster typisk mellem 10 og 100 kroner, alt afhængig af hvad de skal bruges til.</p>
@@ -59,7 +65,7 @@ import "../styles/tobii.min.css";
 			</div>
 		</section>
 		<section class="max-w-xl mx-auto mt-32 prose" id="pierresberoemmelse">
-			<h2 class="text-4xl">Pierres berømmelse</h2>
+			<h2 class="text-4xl text-violet-500">Pierres berømmelse</h2>
 			<p>Pierres interesse for foto startede som ganske ung - som 10-årig fik han sin fars gamle Rollei-kamera, og begyndte at skyde løs. Det var før den digitale revolution, så alle Pierres lommepenge blev brugt på filmruller og fremkaldelse af film. Pierre fortsatte med at fotografere på film op gennem gymnasietiden.</p>
 			<p>Pierre over til digital fotografering i starten af 2000’erne, da han begyndte at studere fotografisk kommunikation på DMJX. Her åbnede en ny verden sig: Reklamefotografering i studie, lyssætning og manipulering af billeder i Photoshop blev hans nye stil. </p>
 			<p>På det tidspunkt var stock-foto industrien i starten af en revolution: De første online stock-foto websites begyndte at komme på markedet, men de store, etablerede spillere på markedet holdt lidt igen. Pierre så det for sig: “Om ganske få år er hele branchen digital, og dem der ikke hopper med på den digitale vogn, lukker.”</p>
@@ -69,20 +75,23 @@ import "../styles/tobii.min.css";
 		</section>
 		<section id="enskillevej">
 			<div class="max-w-xl mx-auto mt-32 prose">
-				<h2 class="text-4xl">En skillevej</h2>
+				<h2 class="text-4xl text-blue-500">En skillevej</h2>
 				<p>Pierre tjente godt det følgende årti. Men stille og roligt begyndte billederne også at give ham kvalme. Han kunne ikke holde sit eget arbejde ud, og måtte finde et modsvar til alle de blankpolerede fotos. Noget han kunne lave med stolthed. Pierre bestluttede sig for at droppe stock-fotos, og vende tilbage til rødderne.</p>
 				<p>Han søgte inspiration i analog fotografering, i Lomo-bevægelsen, Glitch art og polaroid fotografering, og begyndte stille og roligt at skabe sig en ny stil - en stil med fokus på det uperfekte, og hvor der er et uforudsigeligt element i det at tage billeder.</p>
 			</div>
 			<div class="grid grid-cols-2 gap-4 max-w-4xl mx-auto my-8 items-center prose">
 				<div>
 					<a href="glitch.jpg" class="lightbox">
-						<Image src={glitch} alt="" class="my-0" />
+						<audio x-ref="kamera_lyd">
+							<source src="kamera.mp3" type="audio/mp3">
+						</audio>
+						<Image src={glitch} alt="" class="cursor cursor-hand-cursor my-0" @mouseenter="$refs.kamera_lyd.play()"/>
 						<figcaption>Glitch kunst</figcaption>
 					</a>
 				</div>
 				<div>
 					<a href="lomo-smena-17.jpg" class="lightbox">
-						<Image src={smena} alt="" class="my-0" />
+						<Image src={smena} alt="" class="cursor cursor-hand-cursor my-0" />
 						<figcaption>Dobbelteksponering med Smena</figcaption>
 					</a>
 				</div>
@@ -119,13 +128,13 @@ import "../styles/tobii.min.css";
 			<div class="grid grid-cols-2 gap-4 max-w-4xl mx-auto my-8 items-center prose">
 				<div>
 					<a href="over-out-icm.jpeg" class="lightbox">
-						<Image src={overouticm} alt="" class="my-0" />
+						<Image src={overouticm} alt="" class="cursor cursor-hand-cursor my-0" />
 						<figcaption>Overeksponeret og ude af fokus</figcaption>
 					</a>	
 				</div>
 				<div>
 					<a href="tynd-film.jpg" class="lightbox">
-						<Image src={tyndfilm} alt="" class="my-0" />
+						<Image src={tyndfilm} alt="" class="cursor cursor-hand-cursor my-0" />
 						<figcaption>Overeksponeret og ude af fokus</figcaption>
 					</a>
 				</div>
@@ -135,7 +144,7 @@ import "../styles/tobii.min.css";
 				<p>Som Pierre forklarer det: <span class="italic">“Nu kan jeg leve livet igen. Jeg føler mig frisk. Jeg føler mig fri. Jeg føler mig genfødt.”</span></p>			
 				<div>
 					<a href="lidtifem-pierre-falcke.jpg" class="lightbox" alt="">
-						<Image src={lidtifem} alt="" class="my-0" />
+						<Image src={lidtifem} alt="" class="cursor cursor-hand-cursor my-0" />
 						<figcaption>Lidt i fem - ny bog af Pierre Falcke</figcaption>
 					</a>			
 				</div>
